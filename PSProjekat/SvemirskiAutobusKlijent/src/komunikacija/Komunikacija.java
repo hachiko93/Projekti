@@ -21,7 +21,7 @@ public class Komunikacija {
     private static Komunikacija instance;
     
     private Komunikacija() throws IOException {
-        socket = new Socket("127.0.0.1", 9000);
+        socket = new Socket("127.0.0.1", 9001);
     }
     
     public static Komunikacija getInstance() throws IOException {

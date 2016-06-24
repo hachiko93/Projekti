@@ -17,7 +17,7 @@ public class Komunikacija {
     private boolean kraj = false;
     
     public void pokreniServer() throws IOException, ClassNotFoundException {
-        ServerSocket ss = new ServerSocket(9000);
+        ServerSocket ss = new ServerSocket(9001);
         System.out.println("Server je pokrenut.");
         while (!kraj) {
             Socket socket = ss.accept();
