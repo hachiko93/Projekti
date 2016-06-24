@@ -2,6 +2,19 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/Licina/Documents/NetBeansProjects/Projekti/Projekti/PSProjekat/SvemirskiAutobusServer/src/so/putnik/ZapamtiPutnikaSO.java</file>
+            <file>file:/C:/Users/Licina/Documents/NetBeansProjects/Projekti/Projekti/PSProjekat/SvemirskiAutobusServer/src/so/putnik/NadjiPutnikeSO.java</file>
+            <file>file:/C:/Users/Licina/Documents/NetBeansProjects/Projekti/Projekti/PSProjekat/SvemirskiAutobusServer/src/logic/KontrolerPoslovneLogike.java</file>
+            <file>file:/C:/Users/Licina/Documents/NetBeansProjects/Projekti/Projekti/PSProjekat/SvemirskiAutobusServer/src/so/OpstaSO.java</file>
+            <file>file:/C:/Users/Licina/Documents/NetBeansProjects/Projekti/Projekti/PSProjekat/SvemirskiAutobusServer/src/so/putnik/VratiPutnikeSO.java</file>
+            <file>file:/C:/Users/Licina/Documents/NetBeansProjects/Projekti/Projekti/PSProjekat/SvemirskiAutobusServer/src/so/profaktura/SacuvajProfakturuSO.java</file>
+            <file>file:/C:/Users/Licina/Documents/NetBeansProjects/Projekti/Projekti/PSProjekat/SvemirskiAutobusServer/src/so/porudzbenica/SacuvajPorudzbenicuSO.java</file>
+            <file>file:/C:/Users/Licina/Documents/NetBeansProjects/Projekti/Projekti/PSProjekat/SvemirskiAutobusServer/src/so/planeta/VratiPlaneteSO.java</file>
+            <file>file:/C:/Users/Licina/Documents/NetBeansProjects/Projekti/Projekti/PSProjekat/SvemirskiAutobusServer/src/so/planeta/NadjiPlaneteSO.java</file>
+            <file>file:/C:/Users/Licina/Documents/NetBeansProjects/Projekti/Projekti/PSProjekat/SvemirskiAutobusServer/src/so/planeta/SacuvajPlanetuSO.java</file>
+            <file>file:/C:/Users/Licina/Documents/NetBeansProjects/Projekti/Projekti/PSProjekat/SvemirskiAutobusServer/src/so/putnik/IzmeniPutnikaSO.java</file>
+            <file>file:/C:/Users/Licina/Documents/NetBeansProjects/Projekti/Projekti/PSProjekat/SvemirskiAutobusServer/src/so/autobus/VratiAutobuseSO.java</file>
+        </group>
     </open-files>
 </project-private>

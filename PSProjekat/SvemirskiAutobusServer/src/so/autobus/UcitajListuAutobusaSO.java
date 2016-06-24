@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package so.zalihe;
+package so.autobus;
 
 import db.DatabaseBroker;
 import domen.OpstiDomenskiObjekat;
-import domen.Zalihe;
+import domen.Svemirskiautobus;
 import java.util.List;
 import so.OpstaSO;
 
@@ -15,7 +15,7 @@ import so.OpstaSO;
  *
  * @author Hachiko
  */
-public class VratiZaliheSO extends OpstaSO{
+public class UcitajListuAutobusaSO extends OpstaSO{
     List<OpstiDomenskiObjekat> ld;
     
     @Override
@@ -24,7 +24,7 @@ public class VratiZaliheSO extends OpstaSO{
 
     @Override
     protected void izvrsiKonkretnuOperaciju(Object obj) throws Exception {
-       ld = DatabaseBroker.getInstanca().vratiListu((Zalihe)obj);
+       ld = DatabaseBroker.getInstanca().vratiListu((Svemirskiautobus)obj);
     }
 
     public List<OpstiDomenskiObjekat> getLd() {

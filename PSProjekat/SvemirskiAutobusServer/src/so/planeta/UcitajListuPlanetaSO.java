@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package so.putnik;
+package so.planeta;
 
 import db.DatabaseBroker;
 import domen.OpstiDomenskiObjekat;
-import domen.Putnik;
+import domen.Planeta;
 import java.util.List;
 import so.OpstaSO;
 
@@ -15,9 +15,7 @@ import so.OpstaSO;
  *
  * @author Hachiko
  */
-public class NadjiPutnikeSO extends OpstaSO{
-
-    private String kriterijum;
+public class UcitajListuPlanetaSO extends OpstaSO{
     List<OpstiDomenskiObjekat> ld;
     
     @Override
@@ -26,15 +24,7 @@ public class NadjiPutnikeSO extends OpstaSO{
 
     @Override
     protected void izvrsiKonkretnuOperaciju(Object obj) throws Exception {
-       ld = DatabaseBroker.getInstanca().nadji((Putnik)obj, kriterijum);
-    }
-
-    public String getKriterijum() {
-        return kriterijum;
-    }
-
-    public void setKriterijum(String kriterijum) {
-        this.kriterijum = kriterijum;
+       ld = DatabaseBroker.getInstanca().vratiListu((Planeta)obj);
     }
 
     public List<OpstiDomenskiObjekat> getLd() {
@@ -44,5 +34,4 @@ public class NadjiPutnikeSO extends OpstaSO{
     public void setLd(List<OpstiDomenskiObjekat> ld) {
         this.ld = ld;
     }
-    
 }

@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package so.autobus;
+package so.planeta;
 
 import db.DatabaseBroker;
 import domen.OpstiDomenskiObjekat;
-import domen.Svemirskiautobus;
+import domen.Planeta;
 import java.util.List;
 import so.OpstaSO;
 
@@ -15,7 +15,8 @@ import so.OpstaSO;
  *
  * @author Hachiko
  */
-public class VratiAutobuseSO extends OpstaSO{
+public class PretraziPlaneteSO extends OpstaSO{
+    String kriterijum;
     List<OpstiDomenskiObjekat> ld;
     
     @Override
@@ -24,7 +25,15 @@ public class VratiAutobuseSO extends OpstaSO{
 
     @Override
     protected void izvrsiKonkretnuOperaciju(Object obj) throws Exception {
-       ld = DatabaseBroker.getInstanca().vratiListu((Svemirskiautobus)obj);
+        ld = DatabaseBroker.getInstanca().nadji((Planeta)obj, kriterijum);
+    }
+
+    public String getKriterijum() {
+        return kriterijum;
+    }
+
+    public void setKriterijum(String kriterijum) {
+        this.kriterijum = kriterijum;
     }
 
     public List<OpstiDomenskiObjekat> getLd() {

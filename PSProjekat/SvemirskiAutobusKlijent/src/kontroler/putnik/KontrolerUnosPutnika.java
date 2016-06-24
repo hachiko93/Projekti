@@ -7,10 +7,13 @@ package kontroler.putnik;
 
 import domen.Putnik;
 import forme.putnik.FMUnosPutnika;
+import java.io.IOException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
@@ -19,6 +22,7 @@ import komunikacija.Komunikacija;
 import transfer.TransferObjekatOdgovor;
 import transfer.TransferObjekatZahtev;
 import util.Konstante;
+import util.Util;
 
 /**
  *
@@ -33,30 +37,35 @@ public class KontrolerUnosPutnika {
     }
 
     public void srediFormu(FMUnosPutnika fm) {
-        popuniComboBox(fm.getJcbTelefon());
-        if (putnik == null) {
-            fm.getJbtnIzmeni().setVisible(false);
-            fm.getJbtnSacuvaj().setVisible(true);
-            fm.getJtxtAdresa().setText(null);
-            fm.getJtxtImePrezime().setText(null);
-            fm.getJtxtJMBG().setText(null);
-            fm.getJtxtTelefon().setText(null);
-            fm.getJcbTelefon().setSelectedItem("011");
-            fm.setTitle("Unos novog putnika");
-            
-            fm.getJtxtJMBG().setEditable(true);
-        } else {
-            fm.getJbtnIzmeni().setVisible(true);
-            fm.getJbtnSacuvaj().setVisible(false);
-            fm.setTitle("Izmena putnika");
-
-            fm.getJtxtImePrezime().setText(putnik.getImeprezime());
-            fm.getJtxtJMBG().setText(putnik.getJmbg());
-            fm.getJtxtAdresa().setText(putnik.getAdresa());
-            fm.getJtxtTelefon().setText(putnik.getKontaktTelefon().substring(3));
-            fm.getJcbTelefon().setSelectedItem(putnik.getKontaktTelefon().substring(0, 3));
-            
-            fm.getJtxtJMBG().setEditable(false);
+        try {
+            popuniComboBox(fm.getJcbTelefon());
+            if (putnik == null) {
+                fm.getJbtnIzmeni().setVisible(false);
+                fm.getJbtnSacuvaj().setVisible(true);
+                fm.getJtxtAdresa().setText(null);
+                fm.getJtxtImePrezime().setText(null);
+                fm.getJtxtJMBG().setText(null);
+                fm.getJtxtTelefon().setText(null);
+                fm.getJcbTelefon().setSelectedItem("069");
+                fm.setTitle("Unos novog putnika");
+                
+                fm.getJtxtJMBG().setEditable(true);
+            } else {
+                fm.getJbtnIzmeni().setVisible(true);
+                fm.getJbtnSacuvaj().setVisible(false);
+                fm.setTitle("Izmena putnika");
+                
+                fm.getJtxtImePrezime().setText(putnik.getImeprezime());
+                fm.getJtxtJMBG().setText(putnik.getJmbg());
+                fm.getJtxtAdresa().setText(putnik.getAdresa());
+                fm.getJtxtTelefon().setText(putnik.getKontaktTelefon().substring(3));
+                fm.getJcbTelefon().setSelectedItem(putnik.getKontaktTelefon().substring(0, 3));
+                
+                fm.getJtxtJMBG().setEditable(false);
+            }
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(fm, ex.getMessage());
+            ex.printStackTrace();
         }
     }
 
@@ -75,9 +84,8 @@ public class KontrolerUnosPutnika {
         putnik = p;
     }
 
-    private void popuniComboBox(JComboBox jcb) {
-        jcb.setModel(new DefaultComboBoxModel(new String[]{"011", "060", "061", "062", "063", "064", "065", "066", "069"})); //dodaj
-
+    private void popuniComboBox(JComboBox jcb) throws IOException {
+        jcb.setModel(new DefaultComboBoxModel(Util.getInstance().getPhoneNumber().toArray()));
     }
 
     public void sacuvajPutnika(FMUnosPutnika fm) {

@@ -37,10 +37,8 @@ public abstract class OpstaSO {
         DatabaseBroker.getInstanca().otvoriKonekciju();
     }
 
-    // Specificno za svaku sistemsku operaciju
     protected abstract void proveriPreduslov(Object obj) throws Exception;
 
-    // Specificno za svaku sistemsku operaciju
     protected abstract void izvrsiKonkretnuOperaciju(Object obj) throws Exception;
 
     private void commitTransakcije() throws Exception {

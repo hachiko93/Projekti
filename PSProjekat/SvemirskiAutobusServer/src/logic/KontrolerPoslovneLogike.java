@@ -1,4 +1,4 @@
-/*
+    /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -14,17 +14,17 @@ import domen.Svemirskiautobus;
 import domen.Zalihe;
 import java.util.List;
 import so.OpstaSO;
-import so.autobus.VratiAutobuseSO;
-import so.planeta.NadjiPlaneteSO;
-import so.planeta.SacuvajPlanetuSO;
-import so.planeta.VratiPlaneteSO;
-import so.porudzbenica.SacuvajPorudzbenicuSO;
-import so.profaktura.SacuvajProfakturuSO;
+import so.autobus.UcitajListuAutobusaSO;
+import so.planeta.PretraziPlaneteSO;
+import so.planeta.ZapamtiPlanetuSO;
+import so.planeta.UcitajListuPlanetaSO;
+import so.porudzbenica.ZapamtiPorudzbenicuSO;
+import so.profaktura.ZapamtiProfakturuSO;
 import so.putnik.IzmeniPutnikaSO;
-import so.putnik.NadjiPutnikeSO;
-import so.putnik.SacuvajPutnikaSO;
-import so.putnik.VratiPutnikeSO;
-import so.zalihe.VratiZaliheSO;
+import so.putnik.PretraziPutnikeSO;
+import so.putnik.ZapamtiPutnikaSO;
+import so.putnik.UcitajListuPutnikaSO;
+import so.zalihe.UcitajListuZalihaSO;
 
 /**
  *
@@ -33,46 +33,46 @@ import so.zalihe.VratiZaliheSO;
 public class KontrolerPoslovneLogike {
 
     public static List<OpstiDomenskiObjekat> vratiListuPlaneta() throws Exception {
-        OpstaSO vratiPlaneteSO = new VratiPlaneteSO();
+        OpstaSO vratiPlaneteSO = new UcitajListuPlanetaSO();
         vratiPlaneteSO.izvrsenjeSO(new Planeta());
-        return ((VratiPlaneteSO) vratiPlaneteSO).getLd();
+        return ((UcitajListuPlanetaSO) vratiPlaneteSO).getLd();
     }
 
     public static List<OpstiDomenskiObjekat> vratiListuPutnika() throws Exception {
-        OpstaSO vratiPutnikeSO = new VratiPutnikeSO();
+        OpstaSO vratiPutnikeSO = new UcitajListuPutnikaSO();
         vratiPutnikeSO.izvrsenjeSO(new Putnik());
-        return ((VratiPutnikeSO) vratiPutnikeSO).getLd();
+        return ((UcitajListuPutnikaSO) vratiPutnikeSO).getLd();
     }
 
     public static List<OpstiDomenskiObjekat> vratiListuZaliha() throws Exception {
-        OpstaSO vratiZaliheSO = new VratiZaliheSO();
+        OpstaSO vratiZaliheSO = new UcitajListuZalihaSO();
         vratiZaliheSO.izvrsenjeSO(new Zalihe());
-        return ((VratiZaliheSO) vratiZaliheSO).getLd();
+        return ((UcitajListuZalihaSO) vratiZaliheSO).getLd();
     }
 
     public static List<OpstiDomenskiObjekat> vratiListuAutobusa() throws Exception {
-        OpstaSO vratiAutobuseSO = new VratiAutobuseSO();
+        OpstaSO vratiAutobuseSO = new UcitajListuAutobusaSO();
         vratiAutobuseSO.izvrsenjeSO(new Svemirskiautobus());
-        return ((VratiAutobuseSO) vratiAutobuseSO).getLd();
+        return ((UcitajListuAutobusaSO) vratiAutobuseSO).getLd();
     }
 
     public static void sacuvajPutnika(Putnik p) throws Exception {
-        OpstaSO sacuvajPutnikaSO = new SacuvajPutnikaSO();
+        OpstaSO sacuvajPutnikaSO = new ZapamtiPutnikaSO();
         sacuvajPutnikaSO.izvrsenjeSO(p);
     }
 
     public static void sacuvajPlanetu(Planeta p) throws Exception {
-        OpstaSO sacuvajPlanetuSO = new SacuvajPlanetuSO();
+        OpstaSO sacuvajPlanetuSO = new ZapamtiPlanetuSO();
         sacuvajPlanetuSO.izvrsenjeSO(p);
     }
 
     public static void sacuvajProfakturu(Profaktura p) throws Exception {
-        OpstaSO sacuvajProfakturuSO = new SacuvajProfakturuSO();
+        OpstaSO sacuvajProfakturuSO = new ZapamtiProfakturuSO();
         sacuvajProfakturuSO.izvrsenjeSO(p);
     }
 
     public static void sacuvajPorudzbenicu(Porudzbenica p) throws Exception {
-        OpstaSO sacuvajPorudzbenicuSO = new SacuvajPorudzbenicuSO();
+        OpstaSO sacuvajPorudzbenicuSO = new ZapamtiPorudzbenicuSO();
         sacuvajPorudzbenicuSO.izvrsenjeSO(p);
     }
 
@@ -82,17 +82,17 @@ public class KontrolerPoslovneLogike {
     }
 
     public static List<OpstiDomenskiObjekat> nadjiPutnike(String imeprezime) throws Exception {
-        OpstaSO nadjiPutnikeSO = new NadjiPutnikeSO();
-        ((NadjiPutnikeSO)nadjiPutnikeSO).setKriterijum(imeprezime);
+        OpstaSO nadjiPutnikeSO = new PretraziPutnikeSO();
+        ((PretraziPutnikeSO)nadjiPutnikeSO).setKriterijum(imeprezime);
         nadjiPutnikeSO.izvrsenjeSO(new Putnik());
-        return ((NadjiPutnikeSO) nadjiPutnikeSO).getLd();
+        return ((PretraziPutnikeSO) nadjiPutnikeSO).getLd();
     }
 
     public static List<OpstiDomenskiObjekat> nadjiPlanete(String naziv) throws Exception {
-        OpstaSO nadjiPlaneteSO = new NadjiPlaneteSO();
-        ((NadjiPlaneteSO)nadjiPlaneteSO).setKriterijum(naziv);
+        OpstaSO nadjiPlaneteSO = new PretraziPlaneteSO();
+        ((PretraziPlaneteSO)nadjiPlaneteSO).setKriterijum(naziv);
         nadjiPlaneteSO.izvrsenjeSO(new Planeta());
-        return ((NadjiPlaneteSO) nadjiPlaneteSO).getLd();
+        return ((PretraziPlaneteSO) nadjiPlaneteSO).getLd();
     }
 }
 

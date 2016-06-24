@@ -3,35 +3,23 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package so.planeta;
+package so.profaktura;
 
 import db.DatabaseBroker;
-import domen.OpstiDomenskiObjekat;
-import domen.Planeta;
-import java.util.List;
+import domen.Profaktura;
 import so.OpstaSO;
 
 /**
  *
  * @author Hachiko
  */
-public class VratiPlaneteSO extends OpstaSO{
-    List<OpstiDomenskiObjekat> ld;
-    
+public class ZapamtiProfakturuSO extends OpstaSO{
     @Override
     protected void proveriPreduslov(Object obj) throws Exception {
     }
 
     @Override
     protected void izvrsiKonkretnuOperaciju(Object obj) throws Exception {
-       ld = DatabaseBroker.getInstanca().vratiListu((Planeta)obj);
-    }
-
-    public List<OpstiDomenskiObjekat> getLd() {
-        return ld;
-    }
-
-    public void setLd(List<OpstiDomenskiObjekat> ld) {
-        this.ld = ld;
+        DatabaseBroker.getInstanca().sacuvaj((Profaktura)obj);
     }
 }

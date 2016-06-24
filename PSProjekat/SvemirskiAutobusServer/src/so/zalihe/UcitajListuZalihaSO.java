@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package so.porudzbenica;
+package so.zalihe;
 
 import db.DatabaseBroker;
-import domen.Porudzbenica;
-import domen.Stavkaporudzbenice;
+import domen.OpstiDomenskiObjekat;
+import domen.Zalihe;
 import java.util.List;
 import so.OpstaSO;
 
@@ -15,20 +15,23 @@ import so.OpstaSO;
  *
  * @author Hachiko
  */
-public class SacuvajPorudzbenicuSO extends OpstaSO{
+public class UcitajListuZalihaSO extends OpstaSO{
+    List<OpstiDomenskiObjekat> ld;
+    
     @Override
     protected void proveriPreduslov(Object obj) throws Exception {
     }
 
     @Override
     protected void izvrsiKonkretnuOperaciju(Object obj) throws Exception {
-        Porudzbenica p = (Porudzbenica)obj;
-        List<Stavkaporudzbenice> ls = p.getStavkaporudzbeniceList();
-        
-        DatabaseBroker.getInstanca().sacuvaj(p);
-        for (Stavkaporudzbenice s : ls) {
-            DatabaseBroker.getInstanca().sacuvaj(s);
-        }
-        
+       ld = DatabaseBroker.getInstanca().vratiListu((Zalihe)obj);
+    }
+
+    public List<OpstiDomenskiObjekat> getLd() {
+        return ld;
+    }
+
+    public void setLd(List<OpstiDomenskiObjekat> ld) {
+        this.ld = ld;
     }
 }

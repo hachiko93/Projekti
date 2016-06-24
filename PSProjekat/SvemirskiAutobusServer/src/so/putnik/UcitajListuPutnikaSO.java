@@ -3,25 +3,35 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package so.planeta;
+package so.putnik;
 
 import db.DatabaseBroker;
-import domen.Planeta;
+import domen.OpstiDomenskiObjekat;
+import domen.Putnik;
+import java.util.List;
 import so.OpstaSO;
 
 /**
  *
  * @author Hachiko
  */
-public class SacuvajPlanetuSO extends OpstaSO{
-
+public class UcitajListuPutnikaSO extends OpstaSO{
+    List<OpstiDomenskiObjekat> ld;
+    
     @Override
     protected void proveriPreduslov(Object obj) throws Exception {
     }
 
     @Override
     protected void izvrsiKonkretnuOperaciju(Object obj) throws Exception {
-        DatabaseBroker.getInstanca().sacuvaj((Planeta)obj);
+       ld = DatabaseBroker.getInstanca().vratiListu((Putnik)obj);
     }
-    
+
+    public List<OpstiDomenskiObjekat> getLd() {
+        return ld;
+    }
+
+    public void setLd(List<OpstiDomenskiObjekat> ld) {
+        this.ld = ld;
+    }
 }
